@@ -1,0 +1,168 @@
+:root {
+    --bg: #f3f4f8;
+    --card: #ffffff;
+    --text: #1f2430;
+    --muted: #8a90a2;
+    --border: #e4e7ef;
+    --primary: #4f6df5;
+    --primary-hover: #3b57d9;
+    --edit: #eef1ff;
+    --edit-text: #4f6df5;
+    --delete: #fdecec;
+    --delete-text: #d64545;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #14161c;
+        --card: #1e212b;
+        --text: #e8eaf0;
+        --muted: #8a90a2;
+        --border: #2d3140;
+        --edit: #262b45;
+        --delete: #3a2326;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px 16px;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.card {
+    width: 100%;
+    max-width: 520px;
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    margin: 0 0 20px;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+/* Add form */
+.add-form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.add-form input[type="text"] {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 14px;
+    font-size: 1rem;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.add-form input[type="text"]:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 109, 245, 0.2);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-primary {
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background: var(--primary);
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.btn-edit {
+    color: var(--edit-text);
+    background: var(--edit);
+}
+
+.btn-delete {
+    color: var(--delete-text);
+    background: var(--delete);
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+    filter: brightness(0.95);
+}
+
+/* Task list */
+.todo-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.todo-item:last-child {
+    border-bottom: none;
+}
+
+.task {
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.actions form {
+    display: inline;
+    margin: 0;
+}
+
+/* Empty state */
+.empty {
+    margin: 12px 0 4px;
+    text-align: center;
+    color: var(--muted);
+}
